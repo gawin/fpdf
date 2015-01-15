@@ -113,21 +113,21 @@ module PDF_EPS
             # next if (len > 2 && line[len-2,len] != ' ')
             cmd = line[len-2,len].strip
             case cmd
-                when 'm', 'l', 'v', 'y', 'c', 'k', 'K', 'g', 'G', 's', 'S', 'J', 'j', 'w', 'M', 'd':
+                when 'm', 'l', 'v', 'y', 'c', 'k', 'K', 'g', 'G', 's', 'S', 'J', 'j', 'w', 'M', 'd'
                     out(line)
                 
-                when 'L':
+                when 'L'
                     line[len-1,len]='l'
                     out(line)
                 
-                when 'C':
+                when 'C'
                     line[len-1,len]='c'
                     out(line)
                 
-                when 'f', 'F':
+                when 'f', 'F'
                     out('f*')
                 
-                when 'b', 'B':
+                when 'b', 'B'
                     out(cmd + '*')
             end
         end
